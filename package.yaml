@@ -1,0 +1,40 @@
+config_version : 0
+
+name: gcc
+
+version: 4.8.5
+
+uuid: repository.gcc
+
+authors:
+  - GNU
+
+description: >
+  The gcc package contains the GNU Compiler Collection version 4.8.
+  You'll need this package in order to compile C code.
+
+
+variants:
+  - [ Linux ]
+
+tools:
+  - gcc
+  - g++
+  - c++
+  - cpp
+  - gcc-ar
+  - gcc-ranlib
+  - gfortran
+  - gcc-nm
+  - gcov
+
+build_requires:
+  - cmakeModules
+
+commands:
+  - export PATH=$PATH:!ROOT!/bin
+  - export CC=!ROOT!/bin/gcc
+  - export CXX=!ROOT!/bin/g++
+  - export LD_LIBRARY_PATH=!ROOT!/lib64:!ROOT!/lib/gcc/x86_64-unknown-linux-gnu/4.8.5:$LD_LIBRARY_PATH
+  - export CMAKE_MODULE_PATH=$CMAKE_MODULE_PATH:!ROOT!/cmake
+  - export GCC_ROOT=!ROOT!
